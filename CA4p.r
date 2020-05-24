@@ -162,7 +162,7 @@ plot(predict_arima, xlab = "Years", ylab = "sales price")
 
 
 # make actuals_predicted dataframe
-# for auto ARIMA
+# for ARIMA
 actuals_predictions <- data.frame(cbind(actuals =test_data, predicted = predict_arima))
 head(actuals_predictions)
 
