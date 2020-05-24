@@ -41,7 +41,7 @@ new_df
 
 
 new_df <- subset(new_df, new_df$county == 'Dublin')
-str(newdf)
+str(new_df)
 
 write.csv(new_df, "Newfile.csv")
 
