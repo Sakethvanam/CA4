@@ -41,7 +41,6 @@ new_df
 
 
 new_df <- subset(new_df, new_df$county == 'Dublin')
-str(new_df)
 
 write.csv(new_df, "Newfile.csv")
 
@@ -129,7 +128,7 @@ Box.test(arima_model$residuals, type = "Ljung-Box")
 
 qqnorm(auto_arima_model$residuals,
        main = "Normal Q-Q Plot (Estimated ARIMA Model)")
-qqline(arima_model$residuals)
+qqline(auto_arima_model$residuals)
 
 Box.test(auto_arima_model$residuals, type = "Ljung-Box")
 #p value is 0.6 which is greater than 0.05.
@@ -150,7 +149,6 @@ fit <- arima(train_data, c(1,0,1))
 fit
 #AIC value is 238.25
 
-
 #-------forecasting auto arima model--------
 predict_auto_arima <- forecast(auto_arima_model)
 predict_auto_arima
@@ -163,4 +161,8 @@ plot(predict_arima, xlab = "Years", ylab = "sales price")
 
 
 
+# make actuals_predicted dataframe
+# for auto ARIMA
+actuals_predictions <- data.frame(cbind(actuals =test_data, predicted = predict_arima))
+head(actuals_predictions)
 
